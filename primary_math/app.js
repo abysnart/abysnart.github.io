@@ -220,7 +220,7 @@ const _generate_question = (grade, level) => new Promise(function(resolve, rejec
   http.onreadystatechange = e => {
     if(http.readyState == 4 && http.status == 200) {
       question = JSON.parse(http.responseText);
-      if(question.error) return resolve(question.error)
+      if(question.error) return resolve(question)
       return resolve(_templates.questions(question.result));
     }
   }
@@ -234,8 +234,8 @@ const _start = async ($viewport, grade, use_hint=false) => {
   while($question == false) {
     $question = await _generate_question(grade, level);
   }
-  if(typeof $question == 'string') {
-    _templates.popup($question);
+  if(typeof $question == 'object') {
+    _templates.popup($question.error);
     return false;
   }
   let i = parseInt((Math.random() * 3) +1);
