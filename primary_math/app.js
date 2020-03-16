@@ -19,9 +19,17 @@ const _templates = {
         </section>
 
         <section>
+          <article class="card-big bg-yellow">
+            <span class="title f2">Đếm và nhận biết</span>
+            <span class="text f05">Học đếm và nhận biết hình ảnh</span>
+            <button data-grade="a" class="examine button green">
+              <i class="icon-play"></i>
+              <span class="ml25">Bắt đầu</span>
+            </button>
+          </article>
           <article class="card-big bg-green">
             <span class="title f2">Lớp 1</span>
-            <span class="text f05">Làm quen với các phép tính và nhận biết</span>
+            <span class="text f05">Làm quen với các phép tính đơn giản</span>
             <button data-grade="1" class="examine button green">
               <i class="icon-play"></i>
               <span class="ml25">Bắt đầu</span>
@@ -105,7 +113,7 @@ const _templates = {
           <span class="score-number score-number-change f1">00</span>
         </section>
         <div class="question-page-content text-center">
-          <p class="text-444 f05 p0x5">${item.question}</p>
+          <p class="text-444 f08 p0x5">${item.question}</p>
           ${refer ? refer : ''}
           ${this.input_box(item)}
         </div>
