@@ -244,9 +244,10 @@ const _start = async ($viewport, grade, use_hint=false) => {
   $viewport.className ='background bg'+i;
   $viewport.innerHTML = $question;
   let $star = $viewport.querySelector('#my-star');
+  let score_each_grade = parseInt(grade) || 1;
   if(use_hint) {
     $star.className = $star.className.replace('sc-still','');
-    change_score($viewport, '+', 1*parseInt(grade));
+    change_score($viewport, '+', 1*score_each_grade);
   }
   let $input = $viewport.querySelector('#answer');
   let $frac_input = $viewport.querySelector('#frac_input');
@@ -255,7 +256,7 @@ const _start = async ($viewport, grade, use_hint=false) => {
   let $show_result = $viewport.querySelector('#guide-question');
   
   
-  $show_result.firstElementChild.textContent = `- ${3*parseInt(grade)}`;
+  $show_result.firstElementChild.textContent = `- ${3*score_each_grade}`;
   if($input) {
     let input_function = (e) => {
       e.preventDefault();
@@ -312,7 +313,7 @@ const _start = async ($viewport, grade, use_hint=false) => {
     let guide = $show_result.getAttribute('data-kq');
     if(parseInt($show_result.getAttribute('data-use')) == 0)
       return _templates.popup('Đáp án: '+guide);
-    let is_change = change_score($viewport, '-', 3*parseInt(grade));
+    let is_change = change_score($viewport, '-', 3*score_each_grade);
     if(is_change) {
       $show_result.setAttribute('data-use', 0);
       $show_result.firstElementChild.textContent = '';
