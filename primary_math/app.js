@@ -84,7 +84,7 @@ const _templates = {
     if(item.type === 'choose_one') {
       return `<ul id="choose_input" class="choose">${item.refer.map(i => `<li><span class="input-box" data-value="${i}">${i}</span></li>`).join('')}</ul>`;
     }
-    return `<input type="number" id="answer" class="input-box f05" placeholder="Nhập đáp án.." />`
+    return `<input type="number" id="answer" class="input-box f08" placeholder="Nhập đáp án.." />`
   },
   questions(item) {
     let frac, refer;
@@ -215,16 +215,13 @@ const _generate_question = (grade, level) => new Promise(function(resolve, rejec
   let question;
   let http = new XMLHttpRequest();
   http.open("POST", window.location.origin+'/question-builder');
-  http.onerror = function () {
-    reject(false)
-  };
+  http.onerror = () => reject(false);
   http.send(JSON.stringify({grade: grade, level:level}));
-
   http.onreadystatechange = e => {
     if(http.readyState == 4 && http.status == 200) {
       question = JSON.parse(http.responseText);
-      if(question.error) resolve(null)
-      resolve(_templates.questions(question.result));
+      if(question.error) return resolve(question.error)
+      return resolve(_templates.questions(question.result));
     }
   }
 })
@@ -236,9 +233,11 @@ const _start = async ($viewport, grade, use_hint=false) => {
   let level = localStorage.getItem('primary_math_app_my_level');
   while($question == false) {
     $question = await _generate_question(grade, level);
-    if($question == null) break
   }
-  if($question == null) return false;
+  if(typeof $question == 'string') {
+    _templates.popup($question);
+    return false;
+  }
   let i = parseInt((Math.random() * 3) +1);
   $viewport.style.display = 'flex';
   $viewport.className ='background bg'+i;
@@ -252,10 +251,7 @@ const _start = async ($viewport, grade, use_hint=false) => {
   let $input = $viewport.querySelector('#answer');
   let $frac_input = $viewport.querySelector('#frac_input');
   let $choose_input = $viewport.querySelector('#choose_input');
-
   let $show_result = $viewport.querySelector('#guide-question');
-  
-  
   $show_result.firstElementChild.textContent = `- ${3*score_each_grade}`;
   if($input) {
     let input_function = (e) => {
