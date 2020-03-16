@@ -90,11 +90,11 @@ const _templates = {
       item.question = str;
     }
     if(item.type.includes('in_list') && item.refer) {
-      refer = `<ul class="refer">${item.refer.map(i => `<li><img src="img${i}" /></li>`).join('')}</ul>`;
+      refer = `<ul class="refer">${item.refer.map(i => `<li><img src="${i}" /></li>`).join('')}</ul>`;
     }
 
     if(item.type === 'choose_one') {
-      refer = `<img style="width: 40%" src="img${item.photo}" />`;
+      refer = `<img style="width: 30%" src="${item.photo}" />`;
     }
     
     let html = `
