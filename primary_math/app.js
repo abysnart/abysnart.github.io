@@ -81,7 +81,7 @@ const _templates = {
         </span>
       `
     }
-    if(item.type === 'choose_one') {
+    if(item.type === 'choose_one' || item.type === 'true_false') {
       return `<ul id="choose_input" class="choose">${item.refer.map(i => `<li><span class="input-box" data-value="${i}">${i}</span></li>`).join('')}</ul>`;
     }
     return `<input type="number" id="answer" class="input-box f08" placeholder="Nhập đáp án.." />`
@@ -175,6 +175,23 @@ const _templates = {
     if($btn2 && cb2) $btn2.addEventListener('click', cb2);
     
     return div;
+  },
+  loader() {
+    let html = `<svg>
+      <g>
+        <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+      </g>
+      <g>
+        <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+      </g>
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#FF56A1;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+    </svg>`;
+    return html
   }
 };
 
@@ -231,6 +248,7 @@ const _start = async ($viewport, grade, use_hint=false) => {
   $viewport.style.minHeight = (window.innerHeight)+'px';
   let $question = false;
   let level = localStorage.getItem('primary_math_app_my_level');
+  $viewport.innerHTML = _templates.loader();
   while($question == false) {
     $question = await _generate_question(grade, level);
   }
