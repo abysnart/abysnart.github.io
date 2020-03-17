@@ -1,0 +1,688 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+body {
+	font-family: 'Open Sans', arial, sans-serif;
+	background-color: #8EC5FC;
+	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+p {
+	font-size: 14px
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input::-webkit-file-upload-button {
+	cursor: pointer;
+	height: 42px;
+	width: 100%;
+}
+a:focus, a:hover {
+	text-decoration: none;
+}
+textarea {
+	resize: none;
+	width: 100%
+}
+ul, ol {
+	list-style: none;
+}
+b, strong {
+	color: #E91E63
+}
+h1 {
+	font-size: 1rem;
+}
+a {
+  color: #2895F1;
+}
+.sidebar {
+  background-color: #F7F9FA
+}
+.navigation > li > a,
+.navigation > li ul li a {
+	color: #637282
+}
+.navigation > li ul {
+	background-color: #E6E8EB
+}
+.navigation > li.active > a, .navigation > li.active:hover > a, .navigation > li.active:focus > a {
+	color: #03A9F4;
+  background-color: transparent; 
+  border-color: transparent; 
+}
+.navigation > li:hover > a {
+	color: #03A9F4;
+	border-left: 3px solid #03A9F4;
+  background-color: transparent;
+}
+
+.page-content {
+  margin: 20px auto;
+  width: 1024px;
+}
+.btn-outline {
+  color: #47525d;
+  border-color: #ddd;
+  background: #fff;
+}
+.btn-outline:hover:not(:disabled) {
+  background: -webkit-linear-gradient(#fff, #f7f9fa);
+  background: linear-gradient(#fff, #f7f9fa);
+}
+.modal-content {
+  border: 0
+}
+.modal-header {
+	background-color: #eae7da;
+	border: 0;
+  border-radius: 6px 6px 0 0;
+}
+.modal-body {
+	border: 0;
+  border-radius: 0 0 6px 6px;
+  background: #fff;
+  border-top: 1px solid #d0d4d9;
+}
+
+
+.choice span:after,
+.checker span:after {
+  font-size: 11px;
+  position: absolute;
+  left: 2.5px;
+  top: 1px;
+}
+.check-primary {
+  color: #455763;
+}
+.check-primary .choice span:hover,
+.check-primary .checker span:hover {
+  border-color: #455763;
+}
+.check-primary .choice:active span, 
+.check-primary .choice.active span, 
+.check-primary .choice span.checked,
+.check-primary .checker:active span, 
+.check-primary .checker.active span, 
+.check-primary .checker span.checked {
+  border-color: #455763;
+  background-color: #455763;
+}
+.check-info {
+  color: #3CA2BB;
+}
+.check-info .choice span:hover,
+.check-info .checker span:hover {
+  border-color: #3CA2BB;
+}
+.check-info .choice:active span, 
+.check-info .choice.active span, 
+.check-info .choice span.checked,
+.check-info .checker:active span, 
+.check-info .checker.active span, 
+.check-info .checker span.checked {
+  border-color: #3CA2BB;
+  background-color: #3CA2BB;
+}
+.check-danger {
+  color: #D65C4F;
+}
+.check-danger .choice span:after,
+.check-danger .checker span:after {
+  content: "\f00d";
+}
+.check-danger .choice span:hover,
+.check-danger .checker span:hover {
+  border-color: #D65C4F;
+}
+.check-danger .choice:active span, 
+.check-danger .choice.active span, 
+.check-danger .choice span.checked,
+.check-danger .checker:active span, 
+.check-danger .checker.active span, 
+.check-danger .checker span.checked {
+  border-color: #D65C4F;
+  background-color: #D65C4F;
+}
+.check-success {
+  color: #65B688;
+}
+.check-success .choice span:after,
+.check-success .checker span:after {
+  content: "\f00c";
+}
+.check-success .choice span:hover,
+.check-success .checker span:hover {
+  border-color: #65B688;
+}
+.check-success .choice:active span, 
+.check-success .choice.active span, 
+.check-success .choice span.checked,
+.check-success .checker:active span, 
+.check-success .checker.active span, 
+.check-success .checker span.checked {
+  border-color: #65B688;
+  background-color: #65B688;
+}
+.text-700 {
+  font-weight: 700;
+}
+.checker, .checker span, .checker input {
+	width: 18px;
+	height: 18px;
+}
+.checker {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.checker span {
+	border: 1px solid #c5c5c5;
+	background-color: #fff;
+	display: -moz-inline-box;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+}
+.checker span:after {
+	content: '\f00c';
+	font-family: 'FontAwesome';
+	color: #fff;
+}
+.checker span.checked:after, .checker.focus span.checked:after {
+	opacity: 1;
+}
+
+.checker input[type="checkbox"] {
+	opacity: 0;
+	-moz-opacity: 0;
+	border: none;
+	background: none;
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+	cursor: pointer;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	z-index: 2;
+}
+
+.checker:active span, .checker.active span {
+	background-color: #f8f8f8;
+	border-color: #d5d5d5;
+}
+.checker.focus span, .checker:hover span {
+	background-color: #fafafa;
+}
+.checker.focus:active span.checked:after, 
+.checker:hover:active span.checked:after, 
+.checker.active:hover span.checked:after, 
+.checker.active.focus span.checked:after {
+	opacity: 0.8;
+}
+.checker.disabled span, 
+.checker.disabled:active span, 
+.checker.disabled.active span {
+	opacity: 0.6;
+}
+.checker.disabled span.checked, 
+.checker.disabled:active span.checked, 
+.checker.disabled.active span.checked {
+	opacity: 0.6;
+}
+.checker.disabled span.checked:after, 
+.checker.disabled:active span.checked:after, 
+.checker.disabled.active span.checked:after {
+	opacity: 1;
+}
+
+/*===== Uniform. Radio =====*/
+
+.choice, .choice span, .choice input {
+	width: 18px;
+	height: 18px;
+}
+.choice {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.choice span {
+	border: 1px solid #c5c5c5;
+	background-color: #fff;
+	display: -moz-inline-box;
+	display: inline-block;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	text-align: center;
+	position: relative;
+}
+.choice span:after {
+	content: '\f00c';
+	font-family: 'FontAwesome';
+	color: #fff;
+}
+.choice span.checked:after {
+	opacity: 1;
+}
+.choice.focus span.checked:after {
+	opacity: 1;
+}
+.choice:active span, 
+.choice.active span {
+	background-color: #f8f8f8;
+	border-color: #d5d5d5;
+}
+.choice.focus span, 
+.choice:hover span {
+	background-color: #fafafa;
+}
+
+.choice input[type="radio"] {
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	z-index: 2;
+	opacity: 0;
+	width: 18px;
+	-moz-opacity: 0;
+	border: none;
+	background: none;
+	display: -moz-inline-box;
+	display: inline-block;
+	text-align: center;
+	float: none;
+	margin: 0;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.choice.focus:active span.checked:after, 
+.choice:hover:active span.checked:after, 
+.choice.active:hover span.checked:after, 
+.choice.active.focus span.checked:after {
+	opacity: 0.8;
+}
+.choice.disabled span, 
+.choice.disabled:active span, 
+.choice.disabled.active span {
+	opacity: 0.6;
+}
+.choice.disabled span.checked, 
+.choice.disabled:active span.checked, 
+.choice.disabled.active span.checked {
+	opacity: 0.6;
+}
+.choice.disabled span.checked:after, 
+.choice.disabled:active span.checked:after, 
+.choice.disabled.active span.checked:after {
+	opacity: 1;
+}
+
+
+.simple-pagination{
+	justify-content: center;
+	padding-bottom: 20px
+}
+.simple-pagination .page-link {
+	border: 0 
+}
+.simple-pagination span {
+	display: block;
+	padding: .5rem .75rem;
+	line-height: 1.25
+}
+.simple-pagination span.current {
+	color: #fff;
+	background-color: #cd5c5c
+}
+
+.swal-overlay {
+	overflow-y: auto
+}
+.swal-modal {
+	vertical-align: top;
+	overflow: visible
+}
+.swal-title {
+	margin-top: 0 !important;
+	font-weight: 400;
+	font-size: 1.5rem
+}
+.swal-content > textarea {
+	width: 100%;
+	padding: 10px;
+	height: 350px;
+	line-height: 1.5;
+	border: 1px solid #ddd;
+	outline: none
+}
+.swal-content .editor-editor {
+	height: 350px
+}
+.swal-button {
+	background-color: #03a9f4;
+	font-size: 14px;
+	font-weight: 400
+}
+.swal-button:hover {
+	box-shadow: 1px 2px 2px #ddd
+}
+.swal-button:focus {
+	box-shadow: none
+}
+.swal-button--cancel {
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+.swal-icon img {
+	max-width: 50%
+}
+.swal-footer {
+	text-align: center
+}
+
+
+.MathJax_SVG {
+	outline: none;
+}
+
+
+#test {
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 60px;
+	background: #fff;
+}
+.test-loading {
+	position: fixed;
+	z-index: 1;
+	height: 100%;
+	width: 960px;
+	background: #fff;
+	top: 0;
+}
+.test-header {
+	position: fixed;
+	top: 0;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 20px;
+  background: #fff;
+  z-index: 11;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.test-content {
+	padding: 10px 30px
+}
+.test-content .test-question {
+	margin: 15px 0;
+	position: relative;
+	padding-left: 20px;
+	outline: 0
+}
+.test-content .test-question.inline > .test-question-title {
+	display: inline
+}
+.test-content .test-question > label {
+	position: relative;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	padding-left: 15px;
+}
+.test-content .test-question > label .choice,
+.test-content .test-question > label .checker {
+	margin-right: 6px
+}
+.test-content .test-question > label:not(.radio-inline) {
+	width: 49%;
+	margin-top: 0;
+	display: inline-block;
+	vertical-align: top
+}
+.test-content .test-question > label .media-attachment {
+	width: 100%;
+  margin: 10px;
+}
+.test-time {
+	color: #131212;
+	font-size: 20px;
+	text-align: right;
+	transition: right 0.5s ease-in-out;
+}
+.test-action {
+	display: grid;
+  grid-gap: 10px;
+  grid-template: 1fr / auto auto;
+}
+.test-menu {
+	cursor: pointer;
+	border: 0;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden;
+	z-index: 111;
+	position: relative;
+}
+.test-control {
+	background: rgba(100, 101, 98, 0.23);
+	position: absolute;
+	width: 200px;
+  top: 120%;
+	margin: 0;
+}
+.test-control:after {
+	position: absolute;
+	top: -6px;
+	left: 30px;
+	display: inline-block;
+	border-right: 6px solid rgba(0, 0, 0, 0);
+	border-bottom: 6px solid rgba(100, 101, 98, 0.23);
+	border-left: 6px solid rgba(0, 0, 0, 0);
+	content: '';
+}
+.test-control ul {
+	list-style: none;
+	padding: 0;
+	height: 210px;
+	outline: 0
+}
+.test-control ul .jspPane {
+	display: flex;
+	flex-wrap: wrap;
+}
+.test-control li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 25px;
+	width: 30px;
+	margin: 5px;
+	background: #03A9F4;
+	color: #fff;
+	cursor: pointer
+}
+.test-control li.checked {
+	background: #8BC34A;
+	color: #fff
+}
+
+.test-control li.checked.fail {
+	background: #d9534f
+}
+.test-control li:hover,
+.test-control li:focus {
+	background: #1992f3;
+	color: #fff;
+}
+
+.test-question-info {
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 700;
+	line-height: 1.5;
+	margin: 5px 20px 10px -20px;
+	display: block;
+}
+
+.test-question-paragraph {
+	font-weight: 600;
+	text-indent: 2em;
+	display: block;
+	margin-bottom: 2em;
+	line-height: 2
+}
+.test-question-paragraph p {
+	margin: 0 0 0.5em
+}
+.test-question-title {
+	width: 100%;
+  display: block;
+	position: relative;
+	margin-left: -10px;
+	margin-bottom: 10px;
+	font-size: 14px
+}
+.test-question-title > .action {
+	position: relative;
+	display: inline;
+	margin-right: 5px;
+	color: #03A9F4;
+	cursor: pointer;
+}
+.test-question-title > .action > i {
+	font-size: 11px
+}
+.test-question-title > span > span.sub-info {
+	display: block;
+	margin: 5px 0 5px 20px
+}
+
+
+
+.test-guide {
+	position: absolute;
+	color: #fff;
+	background: #009688;
+	text-align: center;
+	border-radius: 6px;
+	padding: 2px 5px;
+	font-size: 12px;
+	margin-left: 20px;
+	z-index: 1;
+}
+.test-guide:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	margin-top: -4px;
+	width: 0; height: 0;
+	border-right: 4px solid #009688;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+}
+
+.score-board {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+}
+.score-board > div:last-child {
+  text-align: right;
+}
+.score-board p {
+  margin-bottom: 5px 
+}
+.score-board p span {
+  color: #4CAF50
+}
+
+.btn-grad {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+	background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
+}
+.btn-grad:hover { 
+	background-position: right center;
+}
+
+.MathJax_SVG_Display {
+	display: inline-block !important;
+	width: auto !important;
+	margin: 0 0.5em !important;
+	color: #1b2733;
+}
+
+.jspVerticalBar {
+	width: 6px
+}
+.media-attachment {
+	width: auto;
+	display: block;
+	margin: 0 auto;
+	max-width: 500px
+}
+
+.question-guide {
+	text-indent: 2em;
+	text-align: left;
+	max-height: 350px;
+	overflow: auto;
+}
+.question-guide>p{
+	line-height: 1.5
+}
+@media (max-width: 1024px) {
+	#test {
+		width: auto;
+		margin-bottom: 140px
+	}
+	.test-header {
+		position: sticky;
+		top: -140px;
+		background: #03A9F4;
+		color: #fff;
+		z-index: 1111;
+	}
+	.test-menu {
+		right: 1%;
+		width: 100px;
+		bottom: 40px
+	}
+	.test-content, .test-header {
+		padding: 10px
+	}
+	.test-content .test-question > label {
+		width: 100% !important;
+	}
+	.test-time {
+		position: relative;
+		top: 0;
+		right: 0;
+		text-shadow: none;
+		font-size: 20px;
+		color: #fff
+	}
+	.media-attachment {
+		width: 100%
+	}
+}

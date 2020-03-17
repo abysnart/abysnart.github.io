@@ -106,7 +106,7 @@ const _templates = {
     }
     
     let html = `
-      <div class="question-page">
+      <div class="question-page fadeInLeft animated">
         <section class="score-holder">
           <i id="my-star" class="sc sc-star sc-still"></i>
           <span id="my-score" class="score-number f15">${localStorage.getItem('primary_math_app_my_score') || 0}</span>
