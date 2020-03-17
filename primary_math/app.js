@@ -177,7 +177,7 @@ const _templates = {
     return div;
   },
   loader() {
-    let html = `<svg class="loader">
+    let html = `<div class="loader"><svg>
       <g>
         <path d="M 50,100 A 1,1 0 0 1 50,0"/>
       </g>
@@ -190,7 +190,7 @@ const _templates = {
           <stop offset="100%" style="stop-color:#FF9350;stop-opacity:1" />
         </linearGradient>
       </defs>
-    </svg>`;
+    </svg><div>`;
     return html
   }
 };
