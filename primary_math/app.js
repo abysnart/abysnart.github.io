@@ -177,7 +177,7 @@ const _templates = {
     return div;
   },
   loader() {
-    let html = `<svg>
+    let html = `<svg class="loader">
       <g>
         <path d="M 50,100 A 1,1 0 0 1 50,0"/>
       </g>
