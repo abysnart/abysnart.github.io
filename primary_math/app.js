@@ -12,9 +12,8 @@ const _templates = {
             <option value="all">Các mức độ</option>
             <option value="basic">Cơ bản</option>
             <option value="advance">Nâng cao</option>
-            <option value="logic" disabled>Tư duy</option>
-            <option value="english-basic" disabled>Tiếng Anh - Cơ bản</option>
-            <option value="english-advance" disabled>Tiếng Anh - Nâng cao</option>
+            <option value="english-basic">Tiếng Anh - Cơ bản</option>
+            <option value="english-advance">Tiếng Anh - Nâng cao</option>
           </select>
         </section>
 
