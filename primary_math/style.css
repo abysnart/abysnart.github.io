@@ -1146,8 +1146,11 @@ button:focus {
   }
 }
 @media only screen and (max-width: 768px) {
+	.viewport-wrapper {
+		margin-bottom: 0;
+	}
   #user-viewport {
-    margin: 0;
+    margin: 0 0 50px;
     border-radius: 0;
   }
 }
