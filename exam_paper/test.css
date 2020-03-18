@@ -625,13 +625,6 @@ a {
 	background-position: right center;
 }
 
-.MathJax_SVG_Display {
-	display: inline-block !important;
-	width: auto !important;
-	margin: 0 0.5em !important;
-	color: #1b2733;
-}
-
 .jspVerticalBar {
 	width: 6px
 }
