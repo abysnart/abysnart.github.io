@@ -245,7 +245,9 @@ const _generate_question = (grade, level) => new Promise(function(resolve, rejec
 
 const _start = async ($viewport, grade, use_hint=false) => {
   $viewport = document.getElementById('user-viewport');
-  document.querySelector('.viewport-wrapper').style.minHeight = (window.innerHeight)+'px';
+  $viewport_wrapper = document.querySelector('.viewport-wrapper');
+  $viewport_wrapper.style.minHeight = (window.innerHeight)+'px';
+  $viewport_wrapper.style.marginBottom = 0;
   let $question = false;
   let level = localStorage.getItem('primary_math_app_my_level');
   $viewport.innerHTML = _templates.loader();
