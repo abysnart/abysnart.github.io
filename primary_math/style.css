@@ -1082,6 +1082,16 @@ button:focus {
   -o-transform: translateY(0);
   transform: translateY(0);
 }
+.go-back {
+	position: absolute;
+  top: -30px;
+}
+.go-back svg {
+	fill: #efefef;
+  transform: scale(.6);
+  cursor: pointer;
+  width: 100px;
+}
 
 .loader {
 	width: 100%;
