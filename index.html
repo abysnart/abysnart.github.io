@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta property="og:url" content="https://huongdanhoc.online/luyen-tap-tinh-toan-tieu-hoc" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Luyện tập tính toán tư duy tiểu học" />
+	<meta property="og:description" content="Tăng kỹ năng tư duy và tính toán cho trẻ thông qua các câu hỏi luyện tập" />
+	<meta property="og:image" content="https://i.imgur.com/COcE974.jpg" />
+	<meta property="description" content="Tăng kỹ năng tư duy và tính toán cho trẻ thông qua các câu hỏi luyện tập" />
+  <link rel="icon" type="image/png" href="https://i.imgur.com/2SmcTqo.png"/>
+  <link rel="stylesheet" href="https://abysnart.github.io/primary_math/style.css">
+  <title>Luyện tập tính toán tư duy tiểu học</title>
+</head>
+<body>
+  <div class="viewport-wrapper"><div id="user-viewport"></div></div>
+  <script src="https://abysnart.github.io/primary_math/app.js"></script>
+  <script>
+    app.initialize();
+    window.onload = function() {
+      document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+      }, false);
+      document.addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+          disabledEvent(e);
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+          disabledEvent(e);
+        }
+        if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+          disabledEvent(e);
+        }
+        if (e.ctrlKey && e.keyCode == 85) {
+          disabledEvent(e);
+        }
+        if (event.keyCode == 123) {
+          disabledEvent(e);
+        }
+      }, false);
+      function disabledEvent(e){
+        if (e.stopPropagation){
+          e.stopPropagation();
+        } else if (window.event){
+          window.event.cancelBubble = true;
+        }
+        e.preventDefault();
+        return false;
+      }
+    };
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160644495-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-160644495-2');
+  </script>
+</body>
+</html>
